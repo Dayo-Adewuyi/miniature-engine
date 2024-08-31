@@ -1,14 +1,12 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { Web3 } from "web3";
-import { ZKsyncPlugin } from "web3-plugin-zksync";
-import { CONTRACT_ADDRESS, abi } from '../constant';
-import { Models, ORAPlugin, Chain } from "@ora-io/web3-plugin-ora";
+import Web3 from 'web3'; // Changed to default import if necessary
+import { ZKsyncPlugin } from 'web3-plugin-zksync'; // Ensure this is correct
+import { CONTRACT_ADDRESS, abi } from '../constant'; // Ensure the path and file exist
+import { Models, ORAPlugin, Chain } from '@ora-io/web3-plugin-ora';
 
-
+// Initialize Web3 instance
 const web3 = new Web3();
-web3.registerPlugin(new ZKsyncPlugin("https://sepolia.era.zksync.dev"))
-const zksync = web3.ZKsync;
-
+web3.registerPlugin(new ZKsyncPlugin("https://sepolia.era.zksync.dev"));
 
 const WalletContext = createContext(undefined);
 
@@ -35,30 +33,30 @@ export const WalletProvider = ({ children }) => {
     }
   }, []);
 
-  const generateText = async (prompt) =>{
-    const web3 = new Web3("https://1rpc.io/sepolia");
-    web3.registerPlugin(new ORAPlugin(Chain.SEPOLIA))
+  const generateText = async (prompt) => {
+    const web3Instance = new Web3("https://1rpc.io/sepolia");
+    web3Instance.registerPlugin(new ORAPlugin(Chain.SEPOLIA));
 
-    const estimatedFee = await web3.ora.estimateFee(Models.LLAMA2);
-    const tx = await web3.ora.calculateAIResult("0xA1a9E8c73Ecf86AE7F4858D5Cb72E689cDc9eb3e", Models.LLAMA2, prompt, estimatedFee.toString());
-  console.log("Estimated fee: ", estimatedFee);
+    const estimatedFee = await web3Instance.ora.estimateFee(Models.LLAMA2);
+    const tx = await web3Instance.ora.calculateAIResult("0xA1a9E8c73Ecf86AE7F4858D5Cb72E689cDc9eb3e", Models.LLAMA2, prompt, estimatedFee.toString());
+    console.log("Estimated fee: ", estimatedFee);
+    console.log("Transaction details: ", tx);
 
-  setTimeout(async () => {
-    const result = await web3.ora.getAIResult(Models.LLAMA2, prompt);
-    console.log("Inference result: ", result);
-    //→ Inference result:  QmQkxg31E9b8mCMAW8j2LYB46LM8ghExbXrQHob26WLos1
-}, 30000);
-  }
-  
+    setTimeout(async () => {
+      const result = await web3Instance.ora.getAIResult(Models.LLAMA2, prompt);
+      console.log("Inference result: ", result);
+    }, 30000);
+  };
+
   const connectWallet = async () => {
     if (web3) {
       try {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         setAccount(accounts[0]);
-        setIsWalletConnected(true)
-        const contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS)
-        setGigsHubContract(contract)
-        console.log(account, gigsHubContract)
+        setIsWalletConnected(true);
+        const contract = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
+        setGigsHubContract(contract);
+        console.log(account, gigsHubContract);
       } catch (error) {
         console.log('Error connecting wallet. Please try again.');
         console.error('Error connecting wallet:', error);
@@ -70,8 +68,8 @@ export const WalletProvider = ({ children }) => {
 
   const createGig = async (img, description, kpis, bounty) => {
     if (gigsHubContract && account) {
-      console.log(gigsHubContract)
-      console.log(img,description,kpis,bounty)
+      console.log(gigsHubContract);
+      console.log(img, description, kpis, bounty);
       try {
         await gigsHubContract.methods
           .createGig(img, description, kpis)
@@ -174,31 +172,28 @@ export const WalletProvider = ({ children }) => {
       }
     }
   };
-  
-
 
   return (
     <WalletContext.Provider
-    value={{
-      account,
-      isWalletConnected,
-      web3,
-      gigsHubContract,
-      connectWallet,
-      createGig,
-      getAllGigs,
-      getGigById,
-      applyJob,
-      selectWorker,
-      payout,
-      withdraw,
-      getUsersGig,
-      getUserApplications,
-      generateText
-    }}
-  >
-    {children}
-  </WalletContext.Provider>
-  
+      value={{
+        account,
+        isWalletConnected,
+        web3,
+        gigsHubContract,
+        connectWallet,
+        createGig,
+        getAllGigs,
+        getGigById,
+        applyJob,
+        selectWorker,
+        payout,
+        withdraw,
+        getUsersGig,
+        getUserApplications,
+        generateText
+      }}
+    >
+      {children}
+    </WalletContext.Provider>
   );
 };

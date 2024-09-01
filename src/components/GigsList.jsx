@@ -1,7 +1,5 @@
 // GigsList.js
-
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from 'react-router-dom';
 
 // Define the GigCard component
 const GigCard = ({ id, companyLogo, jobTitle, companyName, duration, rate, type }) => {
@@ -12,26 +10,26 @@ const GigCard = ({ id, companyLogo, jobTitle, companyName, duration, rate, type 
 
       <div className="flex items-center mb-2">
         <div className="w-[80px] h-[80px] relative mt-[50px] mr-3">
-          <Image src={companyLogo} alt="Company Logo" width={60} height={60} style={{ objectFit: "contain" }} />
+          <img src={companyLogo} alt="Company Logo" width={60} height={60} style={{ objectFit: "contain" }} />
         </div>
         <span className="text-lg mt-8 mb-[-20px] font-semibold">{jobTitle}</span>
       </div>
 
       <div className="flex flex-col text-gray-500 text-sm mb-2">
         <div className="flex items-center ml-[10px] mb-3">
-          <Image src="/assets/briefcase.svg" alt="Company" width={14} height={14} className="mr-1" />
+          <img src="/assets/briefcase.svg" alt="Company" width={14} height={14} className="mr-1" />
           <span>{companyName}</span>
         </div>
         <div className="flex items-center mt-[-30px] ml-[120px]">
-          <Image src="/assets/calender.svg" alt="Duration" width={14} height={14} className="mr-1" />
+          <img src="/assets/calender.svg" alt="Duration" width={14} height={14} className="mr-1" />
           <span>{duration}</span>
         </div>
         <div className="flex items-center ml-2">
-          <Image src="/assets/money.svg" alt="Rate" width={14} height={14} className="mr-1" />
+          <img src="/assets/money.svg" alt="Rate" width={14} height={14} className="mr-1" />
           <span>{rate}</span>
         </div>
         <div className="flex items-center mt-[-18px] ml-[120px]">
-          <Image src="/assets/profile-fill.svg" alt="Rate" width={14} height={14} className="mr-1" />
+          <img src="/assets/profile-fill.svg" alt="Rate" width={14} height={14} className="mr-1" />
           <span>{rate}</span>
         </div>
       </div>

@@ -10,7 +10,7 @@ function App() {
   return (
     <WalletProvider>
       <div className="flex min-h-screen flex-col">
-        <Header />
+        <Header/>
         <main>
           {/* Hero Section */}
           <section className="relative flex items-center justify-between px-[50px] bg-white py-16">

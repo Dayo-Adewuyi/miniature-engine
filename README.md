@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# EquiBloc Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+EquiBloc is a  platform designed to connect individuals with opportunities in the Web3 ecosystem. It empowers users by providing features that enhance the job search and hiring process while ensuring fairness and security through blockchain technology. It  enables fair compensation of labour, opensource contributions, and provides a thriving environment for talents built on the ZK-sync.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### MVP Features
 
-### `npm start`
+#### User Authentication
+- Ensures secure access to the platform, leveraging blockchain for identity verification.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Hire
+- Enables employers to hire talents, add job descriptions, set KPIs, and create tests.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Apply
+- Allows talents to interact with job postings and apply for positions.
 
-### `npm test`
+#### Search
+- Users can enter keywords or phrases to find specific job listings, companies, or talents on the platform.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Filter
+- Refine search results based on criteria like job type, location, salary range, and experience level.
 
-### `npm run build`
+#### Escrow
+- Secures payments to prevent labor exploitation, building trust within the platform.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### AI-Powered Cover Letter Writing
+- Enhances the application process by helping users craft compelling cover letters, making it easier for job seekers to apply.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Job Recommendation Engine
+- Suggests relevant jobs based on a user's profile and past behavior, improving engagement and user experience.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Future Features
 
-### `npm run eject`
+#### Talent Matching Algorithm
+- Ensures that the most suitable candidates are matched with job opportunities, improving the quality of hires for employers.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Review and Rating System
+- Builds transparency and trust by allowing both employers and talents to rate their experiences, encouraging accountability.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Web3 Community Partnership Portal
+- Helps onboard talents from Web3 communities, fostering partnerships.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### In-Platform Messaging and Collaboration Tools
+- Facilitates communication between employers and talents.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Analytics and Reporting for Employers
+- Provides employers with insights into their job postings and applicants, enhancing their hiring process.
 
-## Learn More
+#### Integration with External Learning Platforms
+- Users can improve their skills directly from the job platform, making them more competitive in the Web3 job market.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To get started with EquiBloc, clone the repository and follow the setup instructions.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone https://github.com/yourusername/equibloc.git
+cd equibloc

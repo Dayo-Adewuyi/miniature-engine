@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'; // Correct path to Header component
 import Footer from '../components/Footer';
 import GigsList from '../components/GigsList';
-import gigsData from '../components/Gigs';
+import { useWallet } from '../context/WalletContext';
 
 const JobsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('All');
+  const [gigsData, setGigsData] = useState([]);
+  const { getAllGigs, getGigsById } = useWallet();
+
+  useEffect(() => {
+    const fetchGigs = async () => {
+      try {
+        const gigs = await getAllGigs();
+        setGigsData(gigs);
+      } catch (error) {
+        console.error('Error fetching gigs:', error);
+      }
+    };
+
+    fetchGigs();
+  }, [getAllGigs]);
 
   return (
     <div className="flex flex-col min-h-screen">
